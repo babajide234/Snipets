@@ -1,0 +1,141 @@
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+html{
+    box-sizing: border-box;
+}
+body{
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #b7b7b7;
+  background-color: #010101;
+  -webkit-font-smoothing: antialiased;
+}
+ol{
+    list-style:none;
+  }
+.section-timeline{
+    height: 100vh;
+    overflow: scroll;
+  }
+.container{
+    width: 85%;
+    max-width: 1200px;
+    margin: 4em auto;
+}
+.wraper{
+    text-align: center;
+}
+.header{
+    margin-bottom:4rem;
+    position: relative;  
+    h1 {
+      font-size:6rem;
+      
+      &::after,
+      &::before{
+        content: " ";
+        position: absolute;
+        width:10rem ;
+        height: 3px;
+        background-color: #fff;
+       
+      }
+      &::after{
+        right:21rem;
+      }
+      &::before{
+          top:10rem;
+          width: 20rem;
+      }
+    }
+    p{
+        text-transform: uppercase;
+        text-align: right;
+        margin-right: 20rem;
+        color: #bd1313;
+        font-weight: 900;
+    }
+}
+.timeline{
+    position: relative;
+    display: table;
+    &::before{
+        content: " ";
+        position: absolute;
+        width:3px;
+        height: 100%;
+        background-color: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    
+    &__item {  
+        position: relative;
+        margin-bottom: 2em;
+        color: #fff;
+
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        h2 {
+          text-transform: uppercase;
+        }
+        p {
+          font-size: 11px;
+          text-align: justify;
+          width: 70%;
+        }
+        span {
+          text-transform: uppercase;
+        }
+      }
+      &__item-dot{
+        content:"";
+        position:absolute;
+        background-color: #010101;
+        width:16px;
+        height:16px;
+        border-radius:50%;
+        border:3px solid #fff;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        margin-top: 70px;
+        
+      }
+      &__content{
+        position: relative;
+        display: block;
+        margin-left: 6em;
+        padding: 1em;
+        width: calc(50% - 4em);
+      }
+      &__date{
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 2;
+        color: #69686883;
+        &-left{
+          float: right;
+          margin-right: 30%;
+          margin-top: 4%;
+        }
+        &-right{
+          float: left;
+          margin-left: 30%;
+          margin-top: 4%;
+        }
+  
+      }
+    }
+    .timeline__content--flipped {    
+        float: right;
+    }
+    
