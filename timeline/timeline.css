@@ -47,6 +47,12 @@ ol {
   font-size: 6rem;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .header h1 {
+    font-size: 5rem;
+  }
+}
+
 .header h1::after, .header h1::before {
   content: " ";
   position: absolute;
@@ -56,12 +62,51 @@ ol {
 }
 
 .header h1::after {
-  right: 21rem;
+  right: 17rem;
+}
+
+@media only screen and (max-width: 75em) {
+  .header h1::after {
+    right: 15rem;
+  }
+}
+
+@media only screen and (max-width: 52.25em) {
+  .header h1::after {
+    right: 7rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header h1::after {
+    right: 1rem;
+  }
 }
 
 .header h1::before {
   top: 10rem;
-  width: 20rem;
+  width: 18rem;
+}
+
+@media only screen and (max-width: 75em) {
+  .header h1::before {
+    top: 10rem;
+    width: 22rem;
+  }
+}
+
+@media only screen and (max-width: 52.25em) {
+  .header h1::before {
+    top: 10rem;
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header h1::before {
+    top: 8.5rem;
+    width: 18rem;
+  }
 }
 
 .header p {
@@ -72,9 +117,33 @@ ol {
   font-weight: 900;
 }
 
+@media only screen and (max-width: 75em) {
+  .header p {
+    margin-right: 15rem;
+  }
+}
+
+@media only screen and (max-width: 52.25em) {
+  .header p {
+    margin-right: 7rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header p {
+    margin-right: 0;
+  }
+}
+
 .timeline {
   position: relative;
   display: table;
+}
+
+.timeline:after, .timeline:before {
+  content: " ";
+  display: block;
+  clear: both;
 }
 
 .timeline::before {
@@ -89,30 +158,39 @@ ol {
           transform: translate(-50%, -50%);
 }
 
+@media only screen and (max-width: 37.5em) {
+  .timeline::before {
+    left: 0;
+  }
+}
+
 .timeline__item {
   position: relative;
   margin-bottom: 2em;
   color: #fff;
+  text-transform: uppercase;
 }
 
-.timeline__item:after {
-  content: "";
-  display: table;
+.timeline__item:after, .timeline__item:before {
+  content: " ";
+  display: block;
   clear: both;
 }
 
 .timeline__item h2 {
-  text-transform: uppercase;
+  text-align: left;
+}
+
+@media only screen and (max-width: 52.25em) {
+  .timeline__item h2 {
+    font-size: 20px;
+  }
 }
 
 .timeline__item p {
   font-size: 11px;
   text-align: justify;
-  width: 70%;
-}
-
-.timeline__item span {
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 .timeline__item-dot {
@@ -127,37 +205,101 @@ ol {
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-  margin-top: 70px;
+  margin-top: 45px;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .timeline__item-dot {
+    left: 0;
+    margin-top: 35px;
+  }
 }
 
 .timeline__content {
   position: relative;
   display: block;
-  margin-left: 6em;
+  margin-left: 1em;
   padding: 1em;
   width: calc(50% - 4em);
+  float: left;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .timeline__content {
+    width: calc(100% - 4em);
+  }
 }
 
 .timeline__date {
-  font-size: 30px;
+  font-size: 70px;
   font-weight: 900;
-  line-height: 2;
   color: #69686883;
+}
+
+@media only screen and (max-width: 52.25em) {
+  .timeline__date {
+    font-size: 55px;
+  }
 }
 
 .timeline__date-left {
   float: right;
-  margin-right: 30%;
-  margin-top: 4%;
+  margin-right: 8%;
+}
+
+@media only screen and (max-width: 75em) {
+  .timeline__date-left {
+    margin-left: 30px;
+  }
+}
+
+@media only screen and (max-width: 52.25em) {
+  .timeline__date-left {
+    margin-top: 10px;
+    margin-right: 0px;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .timeline__date-left {
+    float: none;
+    margin-left: 30px;
+  }
 }
 
 .timeline__date-right {
   float: left;
-  margin-left: 30%;
-  margin-top: 4%;
+  margin-left: 8%;
+}
+
+@media only screen and (max-width: 75em) {
+  .timeline__date-right {
+    margin-left: 70px;
+  }
+}
+
+@media only screen and (max-width: 52.25em) {
+  .timeline__date-right {
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .timeline__date-right {
+    float: none;
+    margin-left: 30px;
+  }
 }
 
 .timeline__content--flipped {
   float: right;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .timeline__content--flipped {
+    float: none;
+  }
 }
 /*# sourceMappingURL=timeline.css.map */

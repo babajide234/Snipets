@@ -1,3 +1,32 @@
+
+//responsive mixin endpoints for mobile tablet and pc
+
+@mixin respond($breakpoint) {
+  @if  $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) { @content }; //600px
+  }
+  @if  $breakpoint == tab-port {
+      @media only screen and  (max-width: 52.25em) { @content }; //900px
+  }
+  @if  $breakpoint == tab-land {
+      @media only screen and  (max-width: 75em) { @content }; //1200px
+  }
+  @if  $breakpoint == big-desktop {
+      @media only screen and  (max-width: 112.5em) { @content }; //1800px
+  }
+}
+
+//clearfix mixin for clearing floats
+@mixin clearfix {
+  &:after, 
+  &:before {
+		content: " ";
+		display: block;
+		clear: both;
+	}
+}
+
+//reset
 *{
     box-sizing: inherit;
     margin: 0;
@@ -16,7 +45,7 @@ body{
 }
 ol{
     list-style:none;
-  }
+}
 .section-timeline{
     height: 100vh;
     overflow: scroll;
@@ -25,6 +54,7 @@ ol{
     width: 85%;
     max-width: 1200px;
     margin: 4em auto;
+    
 }
 .wraper{
     text-align: center;
@@ -34,7 +64,10 @@ ol{
     position: relative;  
     h1 {
       font-size:6rem;
-      
+      @include respond(phone){
+        font-size: 5rem;
+      }
+
       &::after,
       &::before{
         content: " ";
@@ -45,11 +78,32 @@ ol{
        
       }
       &::after{
-        right:21rem;
+        right:17rem;
+        @include respond(tab-land){
+          right: 15rem;;
+        }
+        @include respond(tab-port){
+          right: 7rem;;
+        }
+        @include respond(phone){
+          right: 1rem;
+        }
       }
       &::before{
           top:10rem;
-          width: 20rem;
+          width: 18rem;
+          @include respond(tab-land){
+            top: 10rem;
+            width: 22rem;
+          }
+          @include respond(tab-port){
+            top: 10rem;
+            width: 20rem;
+          }
+          @include respond(phone){
+            top:8.5rem;
+            width: 18rem;
+          }
       }
     }
     p{
@@ -58,11 +112,21 @@ ol{
         margin-right: 20rem;
         color: #bd1313;
         font-weight: 900;
+        @include respond(tab-land){
+          margin-right: 15rem;
+        }
+        @include respond(tab-port){
+          margin-right: 7rem;
+        }
+        @include respond(phone){
+          margin-right:0;
+        }
     }
 }
 .timeline{
     position: relative;
     display: table;
+    @include clearfix();
     &::before{
         content: " ";
         position: absolute;
@@ -73,28 +137,30 @@ ol{
         left: 50%;
         transform: translate(-50%,-50%);
     }
-    
+    @include respond(phone){
+      &::before{
+        left:0;
+      }
+    }
     &__item {  
         position: relative;
         margin-bottom: 2em;
         color: #fff;
-
-        &:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
+        text-transform: uppercase;
+        @include clearfix();
         h2 {
-          text-transform: uppercase;
+          text-align:left;
+          @include respond(tab-port){
+            font-size: 20px;
+          }
         }
         p {
           font-size: 11px;
           text-align: justify;
-          width: 70%;
+          text-transform:lowercase;
+          
         }
-        span {
-          text-transform: uppercase;
-        }
+        
       }
       &__item-dot{
         content:"";
@@ -107,35 +173,72 @@ ol{
         top: 0;
         left: 50%;
         transform: translate(-50%);
-        margin-top: 70px;
-        
+        margin-top: 45px;
+        @include respond(phone){
+          left: 0;
+          margin-top:35px;
+        }
       }
       &__content{
         position: relative;
         display: block;
-        margin-left: 6em;
+        margin-left: 1em;
         padding: 1em;
         width: calc(50% - 4em);
+        float: left;
+        margin-top: 20px;
+        
+        @include respond(phone){
+          width: calc(100% - 4em);
+        }
       }
+
       &__date{
-        font-size: 30px;
-        font-weight: 900;
-        line-height: 2;
+        font-size: 70px;
+        font-weight: 900; 
         color: #69686883;
+        @include respond(tab-port){
+          font-size: 55px;
+        }
+
         &-left{
           float: right;
-          margin-right: 30%;
-          margin-top: 4%;
+          margin-right: 8%;
+          @include respond(tab-land){
+            margin-left:30px;
+          }
+          @include respond(tab-port){
+            margin-top: 10px;
+            margin-right: 0px;
+          }
+          @include respond(phone){
+            float: none;
+            margin-left: 30px;
+          }
         }
         &-right{
           float: left;
-          margin-left: 30%;
-          margin-top: 4%;
+          margin-left: 8%;
+          @include respond(tab-land){
+            margin-left: 70px; 
+          }
+          @include respond(tab-port){
+            margin-top: 10px;
+            margin-left: 0px;
+          }
+          @include respond(phone){
+            float: none;
+            margin-left: 30px;
+            
+          }
         }
   
       }
     }
     .timeline__content--flipped {    
         float: right;
+        @include respond(phone){
+          float: none;
+        }
     }
     
